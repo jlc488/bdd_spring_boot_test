@@ -4,7 +4,6 @@ import iam.sinny.springboottesting.exception.ResourceNotFoundException;
 import iam.sinny.springboottesting.model.Employee;
 import iam.sinny.springboottesting.repository.EmployeeRepository;
 import iam.sinny.springboottesting.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,5 +31,20 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
+    }
+
+    @Override
+    public Optional<Employee> getEmployeeById(long id) {
+        return employeeRepository.findById(id);
+    }
+
+    @Override
+    public Employee updateEmployee(Employee employee) {
+        return employeeRepository.save(employee);
+    }
+
+    @Override
+    public void deleteEmployee(long id) {
+        employeeRepository.deleteById(id);
     }
 }
