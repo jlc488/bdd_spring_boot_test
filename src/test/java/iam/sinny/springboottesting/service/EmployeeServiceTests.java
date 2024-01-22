@@ -43,7 +43,7 @@ public class EmployeeServiceTests {
     //JUnit Test for saveEmployee method
     @Test
     @DisplayName("Save Employee Test")
-    public void giveEmployeeObject_whenSaveEmployee_thenReturnSavedEmployeeObject() {
+    public void givenEmployeeObject_whenSaveEmployee_thenReturnSavedEmployeeObject() {
         //give - precondition or setup
         given(employeeRepository.findEmployeeByEmail(employee.getEmail())).willReturn(Optional.empty());
 
@@ -59,7 +59,7 @@ public class EmployeeServiceTests {
     //JUnit Test for saveEmployee method returns Exception
     @Test
     @DisplayName("Save Employee Exception Test")
-    public void giveExistingEmail_whenSaveEmployee_thenThrowsException() {
+    public void givenExistingEmail_whenSaveEmployee_thenThrowsException() {
         //give - precondition or setup
         given(employeeRepository.findEmployeeByEmail(employee.getEmail())).willReturn(Optional.of(employee));
 
@@ -75,7 +75,7 @@ public class EmployeeServiceTests {
     //JUnit Test for Find all Employees
     @Test
     @DisplayName("Get all employees")
-    public void giveEmployeeList_whenGetAllEmployees_thenReturnEmployeeList() {
+    public void givenEmployeeList_whenGetAllEmployees_thenReturnEmployeeList() {
 
         Employee employee2 = Employee.builder().id(2L).firstName("sin2").lastName("kang2").email("jlc2@gmail.com").build();
         //give - precondition or setup
@@ -91,7 +91,7 @@ public class EmployeeServiceTests {
 
     @Test
     @DisplayName("Get all employees (negative)")
-    public void giveEmptyEmployeeList_whenGetAllEmployees_thenReturnEmptyEmployeeList() {
+    public void givenEmptyEmployeeList_whenGetAllEmployees_thenReturnEmptyEmployeeList() {
 
         //give - precondition or setup
         given(employeeRepository.findAll()).willReturn(Collections.emptyList());
@@ -107,7 +107,7 @@ public class EmployeeServiceTests {
     //JUnit Test for Get Employee by Id
     @Test
     @DisplayName("Get Employee by Id")
-    public void giveEmployeeId_whenGetEmployeeId_thenReturnEmployeeObject() {
+    public void givenEmployeeId_whenGetEmployeeId_thenReturnEmployeeObject() {
         //give - precondition or setup
         given(employeeRepository.findById(1L)).willReturn(Optional.of(employee));
 
@@ -122,7 +122,7 @@ public class EmployeeServiceTests {
     //JUnit Test for Update Employee
     @Test
     @DisplayName("Update Employee")
-    public void giveEmployeeObject_whenUpdateemployee_thenReturnEmployeeObject() {
+    public void givenEmployeeObject_whenUpdateemployee_thenReturnEmployeeObject() {
         //give - precondition or setup
         given(employeeRepository.save(employee)).willReturn(employee);
         employee.setEmail("test@gmail.com");
@@ -139,7 +139,7 @@ public class EmployeeServiceTests {
     //JUnit Test for Delete Employee by Id
     @Test
     @DisplayName("Delete employee by id")
-    public void giveEmployeeId_whenDeleteEmployee_thenReturnNothing() {
+    public void givenEmployeeId_whenDeleteEmployee_thenReturnNothing() {
         //give - precondition or setup
         long employeeId = 1L;
         willDoNothing().given(employeeRepository).deleteById(employeeId);

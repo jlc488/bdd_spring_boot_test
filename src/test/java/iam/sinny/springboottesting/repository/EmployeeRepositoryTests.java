@@ -31,7 +31,7 @@ public class EmployeeRepositoryTests {
     //JUnit Test for
     @Test
     @DisplayName("Test for get all employee operation")
-    public void giveEmployeelist_whenFindAll_thenEmployeeList() {
+    public void givenEmployeelist_whenFindAll_thenEmployeeList() {
         //give - precondition or setup
         Employee employee1 = Employee.builder().firstName("sin1").lastName("kang1").email("jlc1@gmail.com").build();
         Employee employee2 = Employee.builder().firstName("sin2").lastName("kang2").email("jlc2@gmail.com").build();
@@ -50,7 +50,7 @@ public class EmployeeRepositoryTests {
     //JUnit Test for get emplooyee by id operation
     @Test
     @DisplayName("Test for get employee by id")
-    public void giveEmployeeObject_whenFindById_thenReturnEmployeeObject() {
+    public void givenEmployeeObject_whenFindById_thenReturnEmployeeObject() {
         //give - precondition or setup
         Employee employee1 = Employee.builder().firstName("sin1").lastName("kang1").email("jlc1@gmail.com").build();
 
@@ -66,7 +66,7 @@ public class EmployeeRepositoryTests {
     //JUnit Test for
     @Test
     @DisplayName("Test for get employee by email")
-    public void giveEmployeeEmail_whenFindByEmail_thenReturningEmployeeObject() {
+    public void givenEmployeeEmail_whenFindByEmail_thenReturningEmployeeObject() {
         //give - precondition or setup
         Employee employee1 = Employee.builder().firstName("sin1").lastName("kang1").email("jlc1@gmail.com").build();
         employeeRepository.save(employee1);
